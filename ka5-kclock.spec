@@ -1,41 +1,43 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	24.01.95
+%define		kdeappsver	23.08.4
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kclock
 Summary:	kclock
 Name:		ka5-%{kaname}
-Version:	24.01.95
-Release:	0.1
+Version:	23.08.4
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
-Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	f1e13833fddb57ed803f21b0781398d4
+Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	4f6e3c0ba9fea930a007392d49e32cc1
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Core-devel >= %{qtver}
-BuildRequires:	Qt6DBus-devel >= 5.15.2
-BuildRequires:	Qt6Gui-devel >= 5.15.2
-BuildRequires:	Qt6Multimedia-devel
-BuildRequires:	Qt6Network-devel >= 5.15.10
-BuildRequires:	Qt6Qml-devel >= 5.15.10
-BuildRequires:	Qt6Quick-devel
-BuildRequires:	Qt6Svg-devel
-BuildRequires:	Qt6Test-devel
-BuildRequires:	Qt6Widgets-devel >= 5.15.2
+BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5DBus-devel >= 5.15.2
+BuildRequires:	Qt5Gui-devel >= 5.15.2
+BuildRequires:	Qt5Multimedia-devel
+BuildRequires:	Qt5Network-devel >= 5.15.10
+BuildRequires:	Qt5Qml-devel >= 5.15.10
+BuildRequires:	Qt5Quick-controls2-devel
+BuildRequires:	Qt5Quick-devel
+BuildRequires:	Qt5Svg-devel
+BuildRequires:	Qt5Test-devel
+BuildRequires:	Qt5Widgets-devel >= 5.15.2
 BuildRequires:	cmake >= 3.20
 BuildRequires:	gettext-devel
-BuildRequires:	kf6-extra-cmake-modules >= 5.101.0
-BuildRequires:	kf6-kconfig-devel >= 5.109.0
-BuildRequires:	kf6-kcoreaddons-devel >= 5.109.0
-BuildRequires:	kf6-kdbusaddons-devel >= 5.101.0
-BuildRequires:	kf6-ki18n-devel >= 5.101.0
-BuildRequires:	kf6-kirigami-devel >= 5.101.0
-BuildRequires:	kf6-knotifications-devel >= 5.101.0
+BuildRequires:	kf5-extra-cmake-modules >= 5.101.0
+BuildRequires:	kf5-kconfig-devel >= 5.109.0
+BuildRequires:	kf5-kcoreaddons-devel >= 5.109.0
+BuildRequires:	kf5-kdbusaddons-devel >= 5.101.0
+BuildRequires:	kf5-ki18n-devel >= 5.101.0
+BuildRequires:	kf5-kirigami2-devel >= 5.101.0
+BuildRequires:	kf5-knotifications-devel >= 5.101.0
+BuildRequires:	kf5-plasma-framework-devel >= 5.101.0
 BuildRequires:	kirigami-addons-devel >= 0.6
 BuildRequires:	ninja
-BuildRequires:	qt6-build >= %{qtver}
+BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
@@ -54,8 +56,7 @@ A convergent clock application for Plasma.
 	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DHTML_INSTALL_DIR=%{_kdedocdir} \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
-	-DQT_MAJOR_VERSION=6
+	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
 %ninja_build -C build
 
 %if %{with tests}
@@ -77,7 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 /etc/xdg/autostart/org.kde.kclockd-autostart.desktop
 %attr(755,root,root) %{_bindir}/kclock
 %attr(755,root,root) %{_bindir}/kclockd
-%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/applets/org.kde.plasma.kclock_1x2.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/applets/plasma_applet_kclock_1x2.so
 %{_desktopdir}/org.kde.kclock.desktop
 %{_datadir}/dbus-1/interfaces/org.kde.kclockd.Alarm.xml
 %{_datadir}/dbus-1/interfaces/org.kde.kclockd.AlarmModel.xml
@@ -88,7 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/dbus-1/services/org.kde.kclockd.service
 %{_iconsdir}/hicolor/scalable/apps/kclock_plasmoid_1x2.svg
 %{_iconsdir}/hicolor/scalable/apps/org.kde.kclock.svg
-%{_datadir}/knotifications6/kclockd.notifyrc
+%{_datadir}/knotifications5/kclockd.notifyrc
 %{_datadir}/metainfo/org.kde.kclock.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.kclock_1x2.appdata.xml
 %dir %{_datadir}/plasma/plasmoids/org.kde.plasma.kclock_1x2
