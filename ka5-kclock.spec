@@ -40,7 +40,7 @@ BuildRequires:	kf5-knotifications-devel >= 5.101.0
 BuildRequires:	kf5-plasma-framework-devel >= 5.101.0
 BuildRequires:	ninja
 BuildRequires:	qt5-build >= %{qtver}
-BuildRequires:	rpmbuild(macros) >= 1.164
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
