@@ -85,7 +85,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kclock
 %attr(755,root,root) %{_bindir}/kclockd
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasma/applets/plasma_applet_kclock_1x2.so
-%{_desktopdir}/org.kde.kclock.desktop
 %{_datadir}/dbus-1/interfaces/org.kde.kclockd.Alarm.xml
 %{_datadir}/dbus-1/interfaces/org.kde.kclockd.AlarmModel.xml
 %{_datadir}/dbus-1/interfaces/org.kde.kclockd.KClockSettings.xml
@@ -93,18 +92,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/dbus-1/interfaces/org.kde.kclockd.TimerModel.xml
 %{_datadir}/dbus-1/interfaces/org.kde.kclockd.Utility.xml
 %{_datadir}/dbus-1/services/org.kde.kclockd.service
-%{_iconsdir}/hicolor/scalable/apps/kclock_plasmoid_1x2.svg
-%{_iconsdir}/hicolor/scalable/apps/org.kde.kclock.svg
 %{_datadir}/knotifications5/kclockd.notifyrc
 %{_datadir}/metainfo/org.kde.kclock.appdata.xml
 %{_datadir}/metainfo/org.kde.plasma.kclock_1x2.appdata.xml
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.kclock_1x2
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.kclock_1x2/contents
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.kclock_1x2/contents/config
-%{_datadir}/plasma/plasmoids/org.kde.plasma.kclock_1x2/contents/config/config.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.kclock_1x2/contents/config/main.xml
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.kclock_1x2/contents/ui
-%{_datadir}/plasma/plasmoids/org.kde.plasma.kclock_1x2/contents/ui/configGeneral.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.kclock_1x2/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.kclock_1x2/metadata.json
-%{_datadir}/plasma/plasmoids/org.kde.plasma.kclock_1x2/metadata.json.license
+%{_datadir}/plasma/plasmoids/org.kde.plasma.kclock_1x2
+%{_desktopdir}/org.kde.kclock.desktop
+%{_iconsdir}/hicolor/scalable/apps/kclock_plasmoid_1x2.svg
+%{_iconsdir}/hicolor/scalable/apps/org.kde.kclock.svg
